@@ -1,0 +1,9 @@
+options:
+  db-url:
+    type: string
+    default: "sqlite:///bookie.db"
+    description: "Path to the db to use. Must be a valid SqlAlchemy url."
+  port:
+    type: int
+    default: 6543
+    description: "Port to run the app on. Default's to Pyramid's 6543."

@@ -1,0 +1,7 @@
+name: bookie
+summary: "Bookie bookmark web application"
+maintainer: Richard Harding <rharding@mitechie.com>
+description: |
+  Installs Bookie instance running sqlite by default.
+categories:
+  - applications
