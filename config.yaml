@@ -7,3 +7,7 @@ options:
     type: int
     default: 6543
     description: "Port to run the app on. Default's to Pyramid's 6543."
+  branch:
+    type: string
+    default: https://github.com/mitechie/Bookie.git
+    description: "The Bookie source branch to install. Use this to test your personal forks using the charm."

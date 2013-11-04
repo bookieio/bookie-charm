@@ -1,20 +1,14 @@
 #!/bin/bash
 set -eux # -x for verbose logging to juju debug-log
 
-# Here do anything needed to install the service
-# i.e. apt-get install -y foo  or  bzr branch http://myserver/mycode /srv/webroot
-# Make sure this hook exits cleanly and is idempotent, common problems here are
-# failing to account for a debconf question on a dependency, or trying to pull
-# from github without installing git first.
-
-#!/bin/bash
-
 # install the deps
 juju-log "Installing system build dependencies."
+#apt-get -y install build-essential git
 apt-get -y install build-essential git
 
 juju-log "Installing Bookie from Git."
-git clone git://github.com/mitechie/Bookie.git
+
+git clone `config-get branch`
 cd Bookie
 
 juju-log "Installing Bookie dependencies."
@@ -23,6 +17,9 @@ NONINTERACTIVE=true make sysdeps
 # this will take a while
 juju-log "Running make install, this will take a while."
 make install
+
+juju-log "Install uwsgi to run the app from."
+bin/pip install uwsgi
 
 juju-log "Opening ports needed, host:6543"
 open-port 6543/tcp

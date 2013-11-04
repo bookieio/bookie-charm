@@ -1,41 +1,48 @@
-Describe the intended usage of this charm and anything unique about how
-this charm relates to others here. 
+Bookie - bookmark your web
 
-This README will be displayed in the Charm Store, it should be either Markdown or RST. Ideal READMEs include instructions on how to use the charm, expected usage, and charm features that your audience might be interested in. For an example of a well written README check out Hadoop: http://jujucharms.com/charms/precise/hadoop
-
-Here's an example you might wish to template off of:
+This charm is under active development and not ready for real use. Feel free
+to try it out, but real database, config, and scaling support is not yet
+implemented.
 
 Overview
 --------
 
-This charm provides (service) from (service homepage). Add a description here of what the service itself actually does. 
+This charm provides a running Bookie instance. Bookie is an Open Source
+bookmark management web application similar to the old Delicious. It adds
+some nice fulltext indexing of bookmarks and the web content on the page as
+well as the start of a responsive mobile interface.
 
 
 Usage
 -----
 
-Step by step instructions on using the charm:
+To install the charm:
 
-    juju deploy servicename
+    juju deploy bookie
 
-and so on. If you're providing a web service or something that the end user needs to go to, tell them here, especially if you're deploying a service that might listen to a non-default port. 
 
-You can then browse to http://ip-address to configure the service. 
+The initial user account information is:
+
+    username: admin
+    password: admin
+
+Look for the application on port *6543*.
+
 
 Configuration
 -------------
 
-The configuration options will be listed on the charm store, however If you're making assumptions or opinionated decisions in the charm (like setting a default administrator password), you should detail that here so the user knows how to change it immediately, etc.
-
+TBD
 
 Contact Information
 -------------------
+Author: Rick Harding <rharding@mitechie.com></rharding>
+Report bugs at: https://github.com/mitechie/bookie
 
-Though this will be listed in the charm store itself don't assume a user will know that, so include that information here:
 
-Author:
-Report bugs at: http://bugs.launchpad.net/charms/+source/charmname
-Location: http://jujucharms.com/charms/distro/charmname
+Important Links
+---------------
 
-* Be sure to remove the templated parts before submitting to https://launchpad.net/charms for inclusion in the charm store.
-
+- http://bmark.us
+- http://docs.bmark.us
+- http://github.com/mitechie/bookie

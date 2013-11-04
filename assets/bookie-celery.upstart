@@ -1,0 +1,15 @@
+description "Celery for Bookie"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+#Send KILL after 20 seconds
+kill timeout 20
+#
+script
+exec sudo -i -u ubuntu BOOKIE_INI=bookie.ini PYTHONPATH="/home/bmark.us/0.5/."
+/home/bmark.us/0.5/bin/celery worker -B --app=bookie.bcelery --loglevel=INFO
+-f /home/bmark.us/0.5/celery.log --autoscale=1,3
+end script
+
+respawn
+
