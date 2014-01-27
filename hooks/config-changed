@@ -1,2 +1,20 @@
 #!/bin/bash
-# config-changed occurs everytime a new configuration value is updated (juju set)
+set -eux # -x for verbose logging to juju debug-log
+
+INI=Bookie/bookie.ini
+PORT=`config-get port`
+DBURL=`config-get db-url`
+
+juju-log 'Updating config'
+juju-log `pwd`
+
+python utils/config-update.py --ini=$INI --port=$PORT --dburl=$DBURL
+
+juju-log "Opening ports needed, host:$PORT"
+open-port $PORT/tcp
+
+# After the config is updated, stop the services, wait for them to die, and
+# then start again.
+./hooks/stop
+sleep 10
+./hooks/start

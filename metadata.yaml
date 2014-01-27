@@ -2,6 +2,10 @@ name: bookie
 summary: "Bookie bookmark web application"
 maintainer: Richard Harding <rharding@mitechie.com>
 description: |
-  Installs Bookie instance running sqlite by default.
+    Installs Bookie instance running sqlite by default. See
+    https://github.com/bookieio/Bookie for source and details.
 categories:
   - applications
+provides:
+    website:
+        interface: http
