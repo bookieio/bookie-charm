@@ -2,7 +2,7 @@ options:
   db-url:
     type: string
     default: "sqlite:///bookie.db"
-    description: "Path to the db to use. Must be a valid SqlAlchemy url."
+    description: "Path to the db to use. Must be a valid SqlAlchemy url. Note: this does not currently migrate new databases for now and is a bit of a placeholder."
   port:
     type: int
     default: 6543
